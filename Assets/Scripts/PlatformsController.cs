@@ -2,7 +2,7 @@
 using UnityEngine;
 using System;
 
-public class PlatformsCtrl : MonoBehaviour
+public class PlatformsController : MonoBehaviour
 {
     [SerializeField] private GameObject m_platformsPrefab = default;
     [SerializeField] private float m_distanceBetweenRows = default;

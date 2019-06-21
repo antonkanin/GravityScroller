@@ -4,13 +4,11 @@ using TMPro;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private GameController gameController = default;
-    [SerializeField] private SoundManager soundManager = default;
 
     [SerializeField] private GameObject m_mainMenu = default;
     [SerializeField] private GameObject m_gamePlayMenu = default;
     [SerializeField] private GameObject m_bestScoreTitle = default;
     [SerializeField] private TMP_Text m_scoreText = default;
-
 
     private void Start()
     {
@@ -22,18 +20,15 @@ public class UIController : MonoBehaviour
     {
         gameController.ResetGame();
         ShowMainMenu(false);
-        soundManager.PlaySoundButtons();
     }
 
     public void GetScoreButton()
     {
         m_bestScoreTitle.SetActive(true);
-        soundManager.PlaySoundButtons();
     }
 
     public void ExitBtn()
     {
-        soundManager.PlaySoundButtons();
         Application.Quit();
     }
 

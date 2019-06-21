@@ -3,13 +3,16 @@
 public class PlayerMovement : MonoBehaviour
 {
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     private static readonly int isJumping = Animator.StringToHash("isJumping");
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-        GetComponent<SpriteRenderer>().flipY = true;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        spriteRenderer.flipY = true;
     }
 
     public void Land()
@@ -21,14 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Physics2D.gravity = -Physics2D.gravity;
 
-        if (Physics2D.gravity.y > 0f)
-        {
-            GetComponent<SpriteRenderer>().flipY = true;
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().flipY = false;
-        }
+        spriteRenderer.flipY = Physics2D.gravity.y > 0f;
 
         animator.SetBool(isJumping, true);
     }

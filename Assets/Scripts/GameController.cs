@@ -4,7 +4,7 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private PlatformsCtrl platformController = default;
+    [SerializeField] private PlatformsController platformController = default;
     [SerializeField] private UIController UIController = default;
 
     [SerializeField] private TMP_Text bestScoreText = default;
@@ -24,17 +24,11 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        GameOverInvoker.GameOverEvent.AddListener(EndOfGame);
         m_delay = new WaitForSeconds(1);
 
         player.SetActive(false);
         m_isGameEnd = true;
         SetBestScore();
-    }
-
-    private void OnDestroy()
-    {
-        GameOverInvoker.GameOverEvent.RemoveListener(EndOfGame);
     }
 
     public void AddPoint()

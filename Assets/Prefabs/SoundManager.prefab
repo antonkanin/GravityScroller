@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 239878672821233476}
   - component: {fileID: 239878672821233479}
   - component: {fileID: 6951972535330359946}
+  - component: {fileID: 2762125888185902049}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -326,6 +327,35 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 239878672821233479}
         m_MethodName: PlaySoundBall
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &2762125888185902049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239878672821233478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69963184aebdd6b40b8c27306ae68b93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: c51e4fb5fc78369499bc6c4b5d5e6b3b, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 239878672821233479}
+        m_MethodName: PlaySoundButtons
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

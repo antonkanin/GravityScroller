@@ -3,32 +3,34 @@ using UnityEngine.UI;
 
 public class ChangerSoundBtnColor : MonoBehaviour
 {
-    private Image m_image;
-    private Color m_defaultColor;
+    [SerializeField] private GameEvent soundOnEvent = default;
 
+    [SerializeField] private GameEvent soundOffEvent = default;
+
+    [SerializeField] private BoolVariable isSoundOn = default;
+
+    private Image image;
+    private Color defaultColor;
 
     void Start()
     {
-        SoundManager.ChangeSoundOffBtnStatusEvent.AddListener(ChangeSoundOffBtnColor);
-
-        m_image = GetComponent<Image>();
-        m_defaultColor = m_image.color;
+        image = GetComponent<Image>();
+        defaultColor = image.color;
     }
 
-    private void OnDestroy()
+    public void ChangeSoundOffBtnColor()
     {
-        SoundManager.ChangeSoundOffBtnStatusEvent.RemoveListener(ChangeSoundOffBtnColor);
-    }
-
-    private void ChangeSoundOffBtnColor()
-    {
-        if (SoundManager.m_isSoundOn)
+        if (isSoundOn.Value)
         {
-            m_image.color = m_defaultColor;
+            soundOffEvent.Raise();
+            image.color = Color.red;
         }
         else
         {
-            m_image.color = Color.red;
+            soundOnEvent.Raise();
+            image.color = defaultColor;
         }
+
+        isSoundOn.Value = !isSoundOn.Value;
     }
 }
