@@ -95,7 +95,7 @@ public class PlatformsCtrl : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!GameCtrl.m_isGameEnd)
+        if (!GameController.m_isGameEnd)
         {
             foreach (var item in m_platformsPool)
             {

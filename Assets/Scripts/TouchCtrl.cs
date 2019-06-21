@@ -2,11 +2,20 @@
 
 public class TouchCtrl : MonoBehaviour
 {
-    [SerializeField] private GameCtrl m_gameCtrl = default;
+    [SerializeField] private GameController mGameController = default;
     [SerializeField] private SoundMngr m_soundMngr = default;
+
+    private Animator animator;
 
     private bool isTouchPossible;
 
+    private static readonly int IsJumping = Animator.StringToHash("isJumping");
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        GetComponent<SpriteRenderer>().flipY = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,9 +23,11 @@ public class TouchCtrl : MonoBehaviour
         {
             isTouchPossible = true;
 
-            m_gameCtrl.AddPoint();
+            mGameController.AddPoint();
 
             m_soundMngr.PlaySoundBall();
+            
+            animator.SetBool(IsJumping, false);
         }
     }
 
@@ -30,6 +41,17 @@ public class TouchCtrl : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && isTouchPossible)
         {
             Physics2D.gravity = -Physics2D.gravity;
+
+            if (Physics2D.gravity.y > 0f)
+            {
+                GetComponent<SpriteRenderer>().flipY = true;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().flipY = false;
+            }
+
+            animator.SetBool(IsJumping, true);
         }
     }
 }

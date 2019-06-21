@@ -3,7 +3,7 @@ using TMPro;
 
 public class UICtrl : MonoBehaviour
 {
-    [SerializeField] private GameCtrl m_gameCtrl = default;
+    [SerializeField] private GameController mGameController = default;
     [SerializeField] private SoundMngr m_soundMngr = default;
 
     [SerializeField] private GameObject m_mainMenu = default;
@@ -20,7 +20,7 @@ public class UICtrl : MonoBehaviour
 
     public void PlayBtn()
     {
-        m_gameCtrl.ResetGame();
+        mGameController.ResetGame();
         ShowMainMenu(false);
         m_soundMngr.PlaySoundBtns();
     }

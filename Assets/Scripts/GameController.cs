@@ -2,7 +2,7 @@
 using UnityEngine;
 using TMPro;
 
-public class GameCtrl : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     [SerializeField] private PlatformsCtrl m_platformCtrl = default;
     [SerializeField] private UICtrl m_UICtrl = default;
