@@ -2,7 +2,7 @@
 using UnityEngine.Audio;
 using UnityEngine.Events;
 
-public class SoundMngr : MonoBehaviour
+public class SoundManager : MonoBehaviour
 {
     [SerializeField] private AudioSource m_soundBall = default;
     [SerializeField] private AudioSource m_soundBtns = default;

@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 
-public class TouchCtrl : MonoBehaviour
+public class TouchController : MonoBehaviour
 {
-    [SerializeField] private GameController mGameController = default;
-    [SerializeField] private SoundMngr m_soundMngr = default;
+    [SerializeField] private GameController gameController = default;
+    [SerializeField] private SoundManager soundManager = default;
 
     private Animator animator;
 
     private bool isTouchPossible;
 
-    private static readonly int IsJumping = Animator.StringToHash("isJumping");
+    private static readonly int isJumping = Animator.StringToHash("isJumping");
 
     private void Start()
     {
@@ -23,11 +23,11 @@ public class TouchCtrl : MonoBehaviour
         {
             isTouchPossible = true;
 
-            mGameController.AddPoint();
+            gameController.AddPoint();
 
-            m_soundMngr.PlaySoundBall();
+            soundManager.PlaySoundBall();
             
-            animator.SetBool(IsJumping, false);
+            animator.SetBool(isJumping, false);
         }
     }
 
@@ -51,7 +51,7 @@ public class TouchCtrl : MonoBehaviour
                 GetComponent<SpriteRenderer>().flipY = false;
             }
 
-            animator.SetBool(IsJumping, true);
+            animator.SetBool(isJumping, true);
         }
     }
 }

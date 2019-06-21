@@ -4,14 +4,14 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private PlatformsCtrl m_platformCtrl = default;
-    [SerializeField] private UICtrl m_UICtrl = default;
+    [SerializeField] private PlatformsCtrl platformController = default;
+    [SerializeField] private UIController UIController = default;
 
-    [SerializeField] private TMP_Text m_bestScoreText = default;
+    [SerializeField] private TMP_Text bestScoreText = default;
 
-    [SerializeField] private GameObject m_ball = default;
+    [SerializeField] private GameObject player = default;
 
-    public static int m_currScore;
+    public static int currentScore;
     public static bool m_isGameEnd;
 
     private WaitForSeconds m_delay;
@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
         GameOverInvoker.GameOverEvent.AddListener(EndOfGame);
         m_delay = new WaitForSeconds(1);
 
-        m_ball.SetActive(false);
+        player.SetActive(false);
         m_isGameEnd = true;
         SetBestScore();
     }
@@ -39,32 +39,32 @@ public class GameController : MonoBehaviour
 
     public void AddPoint()
     {
-        m_currScore++;
-        m_UICtrl.SetScore(m_currScore);
+        currentScore++;
+        UIController.SetScore(currentScore);
     }
 
     public void ResetGame()
     {
-        m_currScore = 0;
-        m_UICtrl.SetScore(0);
+        currentScore = 0;
+        UIController.SetScore(0);
 
         if (Physics2D.gravity.y < 0)
         {
             Physics2D.gravity = -Physics2D.gravity;
         }
 
-        m_ball.transform.position = Vector2.zero;
-        m_ball.SetActive(true);
+        player.transform.position = Vector2.zero;
+        player.SetActive(true);
 
-        m_platformCtrl.InitialSettingPlatformsInPool();
-        m_platformCtrl.ShowPlatformsPool(true);
+        platformController.InitialSettingPlatformsInPool();
+        platformController.ShowPlatformsPool(true);
 
         m_isGameEnd = false;
     }
 
     private void EndOfGame()
     {
-        m_platformCtrl.ShowPlatformsPool(false);
+        platformController.ShowPlatformsPool(false);
 
         m_isGameEnd = true;
 
@@ -72,32 +72,32 @@ public class GameController : MonoBehaviour
 
         SetBestScore();
 
-        m_ball.SetActive(false);
+        player.SetActive(false);
     }
 
     private IEnumerator EndOfGameCor()
     {
         yield return m_delay;
 
-        m_platformCtrl.ShowPlatformsPool(false);
+        platformController.ShowPlatformsPool(false);
 
-        m_UICtrl.ShowMainMenu(true);
+        UIController.ShowMainMenu(true);
     }
 
     private void SetBestScore()
     {
         if (PlayerPrefs.HasKey("BestScore"))
         {
-            if (m_currScore > PlayerPrefs.GetInt("BestScore"))
+            if (currentScore > PlayerPrefs.GetInt("BestScore"))
             {
-                PlayerPrefs.SetInt("BestScore", m_currScore);
+                PlayerPrefs.SetInt("BestScore", currentScore);
             }
         }
         else
         {
-            PlayerPrefs.SetInt("BestScore", m_currScore);
+            PlayerPrefs.SetInt("BestScore", currentScore);
         }
 
-        m_bestScoreText.text = "Best score: " + PlayerPrefs.GetInt("BestScore").ToString();
+        bestScoreText.text = "Best score: " + PlayerPrefs.GetInt("BestScore").ToString();
     }
 }

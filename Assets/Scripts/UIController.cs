@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using TMPro;
 
-public class UICtrl : MonoBehaviour
+public class UIController : MonoBehaviour
 {
-    [SerializeField] private GameController mGameController = default;
-    [SerializeField] private SoundMngr m_soundMngr = default;
+    [SerializeField] private GameController gameController = default;
+    [SerializeField] private SoundManager soundManager = default;
 
     [SerializeField] private GameObject m_mainMenu = default;
     [SerializeField] private GameObject m_gamePlayMenu = default;
@@ -20,20 +20,20 @@ public class UICtrl : MonoBehaviour
 
     public void PlayBtn()
     {
-        mGameController.ResetGame();
+        gameController.ResetGame();
         ShowMainMenu(false);
-        m_soundMngr.PlaySoundBtns();
+        soundManager.PlaySoundBtns();
     }
 
     public void GetScoreBtn()
     {
         m_bestScoreTitle.SetActive(true);
-        m_soundMngr.PlaySoundBtns();
+        soundManager.PlaySoundBtns();
     }
 
     public void ExitBtn()
     {
-        m_soundMngr.PlaySoundBtns();
+        soundManager.PlaySoundBtns();
         Application.Quit();
     }
 
@@ -46,6 +46,6 @@ public class UICtrl : MonoBehaviour
 
     public void SetScore(int score)
     {
-        m_scoreText.text = "Score: " + score.ToString();
+        m_scoreText.text = score.ToString();
     }
 }

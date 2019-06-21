@@ -9,7 +9,7 @@ public class ChangerSoundBtnColor : MonoBehaviour
 
     void Start()
     {
-        SoundMngr.ChangeSoundOffBtnStatusEvent.AddListener(ChangeSoundOffBtnColor);
+        SoundManager.ChangeSoundOffBtnStatusEvent.AddListener(ChangeSoundOffBtnColor);
 
         m_image = GetComponent<Image>();
         m_defaultColor = m_image.color;
@@ -17,12 +17,12 @@ public class ChangerSoundBtnColor : MonoBehaviour
 
     private void OnDestroy()
     {
-        SoundMngr.ChangeSoundOffBtnStatusEvent.RemoveListener(ChangeSoundOffBtnColor);
+        SoundManager.ChangeSoundOffBtnStatusEvent.RemoveListener(ChangeSoundOffBtnColor);
     }
 
     private void ChangeSoundOffBtnColor()
     {
-        if (SoundMngr.m_isSoundOn)
+        if (SoundManager.m_isSoundOn)
         {
             m_image.color = m_defaultColor;
         }

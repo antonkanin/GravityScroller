@@ -1022,10 +1022,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32141b4daafeef2489b37672d1c613dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_platformCtrl: {fileID: 675762114}
-  m_UICtrl: {fileID: 1356323682}
-  m_bestScoreText: {fileID: 1433589576}
-  m_ball: {fileID: 775769909}
+  platformController: {fileID: 675762114}
+  UIController: {fileID: 1356323682}
+  bestScoreText: {fileID: 1433589576}
+  player: {fileID: 775769909}
 --- !u!1 &728579439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,8 +1468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed509baaecdd7842bf30639d8398efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mGameController: {fileID: 691086654}
-  m_soundMngr: {fileID: 1249544041}
+  gameController: {fileID: 691086654}
+  soundManager: {fileID: 1249544041}
 --- !u!1 &826714401
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,7 +1514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b23265aa96d7174ebb3dec8f95c8b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_soundMngr: {fileID: 1249544041}
+  mSoundManager: {fileID: 0}
 --- !u!61 &826714404
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2136,8 +2136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05239ccefdd68d24fb4de21c1905cb94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mGameController: {fileID: 691086654}
-  m_soundMngr: {fileID: 1249544041}
+  gameController: {fileID: 691086654}
+  soundManager: {fileID: 1249544041}
   m_mainMenu: {fileID: 1662386177}
   m_gamePlayMenu: {fileID: 1283872462}
   m_bestScoreTitle: {fileID: 2025093646}
@@ -3003,7 +3003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b23265aa96d7174ebb3dec8f95c8b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_soundMngr: {fileID: 1249544041}
+  mSoundManager: {fileID: 0}
 --- !u!61 &1767341814
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3457,8 +3457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed509baaecdd7842bf30639d8398efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mGameController: {fileID: 0}
-  m_soundMngr: {fileID: 1249544041}
+  gameController: {fileID: 0}
+  soundManager: {fileID: 0}
 --- !u!58 &1987318358
 CircleCollider2D:
   m_ObjectHideFlags: 0
