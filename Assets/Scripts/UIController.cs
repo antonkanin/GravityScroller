@@ -22,18 +22,18 @@ public class UIController : MonoBehaviour
     {
         gameController.ResetGame();
         ShowMainMenu(false);
-        soundManager.PlaySoundBtns();
+        soundManager.PlaySoundButtons();
     }
 
-    public void GetScoreBtn()
+    public void GetScoreButton()
     {
         m_bestScoreTitle.SetActive(true);
-        soundManager.PlaySoundBtns();
+        soundManager.PlaySoundButtons();
     }
 
     public void ExitBtn()
     {
-        soundManager.PlaySoundBtns();
+        soundManager.PlaySoundButtons();
         Application.Quit();
     }
 

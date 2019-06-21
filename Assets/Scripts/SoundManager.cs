@@ -12,7 +12,6 @@ public class SoundManager : MonoBehaviour
 
     public static UnityEvent ChangeSoundOffBtnStatusEvent = new UnityEvent();
 
-
     private void Start()
     {
         m_isSoundOn = true;
@@ -23,7 +22,7 @@ public class SoundManager : MonoBehaviour
         m_soundBall.Play();
     }
 
-    public void PlaySoundBtns()
+    public void PlaySoundButtons()
     {
         m_soundBtns.Play();
     }
@@ -35,7 +34,7 @@ public class SoundManager : MonoBehaviour
 
     public void SoundOffBtn()
     {
-        PlaySoundBtns();
+        PlaySoundButtons();
 
         if (m_isSoundOn)
         {
