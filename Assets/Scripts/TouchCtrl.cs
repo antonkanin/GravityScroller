@@ -2,8 +2,8 @@
 
 public class TouchCtrl : MonoBehaviour
 {
-    [SerializeField] private GameCtrl m_gameCtrl;
-    [SerializeField] private SoundMngr m_soundMngr;
+    [SerializeField] private GameCtrl m_gameCtrl = default;
+    [SerializeField] private SoundMngr m_soundMngr = default;
 
     private bool isTouchPossible;
 

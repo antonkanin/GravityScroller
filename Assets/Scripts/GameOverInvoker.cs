@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class GameOverInvoker : MonoBehaviour
 {
-    [SerializeField] private SoundMngr m_soundMngr;
+    [SerializeField] private SoundMngr m_soundMngr = default;
 
     public static UnityEvent GameOverEvent = new UnityEvent();
 

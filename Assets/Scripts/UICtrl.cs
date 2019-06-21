@@ -3,13 +3,13 @@ using TMPro;
 
 public class UICtrl : MonoBehaviour
 {
-    [SerializeField] private GameCtrl m_gameCtrl;
-    [SerializeField] private SoundMngr m_soundMngr;
+    [SerializeField] private GameCtrl m_gameCtrl = default;
+    [SerializeField] private SoundMngr m_soundMngr = default;
 
-    [SerializeField] private GameObject m_mainMenu;
-    [SerializeField] private GameObject m_gamePlayMenu;
-    [SerializeField] private GameObject m_bestScoreTitle;
-    [SerializeField] private TMP_Text m_scoreText;
+    [SerializeField] private GameObject m_mainMenu = default;
+    [SerializeField] private GameObject m_gamePlayMenu = default;
+    [SerializeField] private GameObject m_bestScoreTitle = default;
+    [SerializeField] private TMP_Text m_scoreText = default;
 
 
     private void Start()

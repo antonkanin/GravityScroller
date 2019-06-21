@@ -4,12 +4,12 @@ using TMPro;
 
 public class GameCtrl : MonoBehaviour
 {
-    [SerializeField] private PlatformsCtrl m_platformCtrl;
-    [SerializeField] private UICtrl m_UICtrl;
+    [SerializeField] private PlatformsCtrl m_platformCtrl = default;
+    [SerializeField] private UICtrl m_UICtrl = default;
 
-    [SerializeField] private TMP_Text m_bestScoreText;
+    [SerializeField] private TMP_Text m_bestScoreText = default;
 
-    [SerializeField] private GameObject m_ball;
+    [SerializeField] private GameObject m_ball = default;
 
     public static int m_currScore;
     public static bool m_isGameEnd;

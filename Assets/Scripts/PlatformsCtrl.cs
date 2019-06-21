@@ -4,9 +4,9 @@ using System;
 
 public class PlatformsCtrl : MonoBehaviour
 {
-    [SerializeField] private GameObject m_platformsPrefab;
-    [SerializeField] private float m_distanceBetweenRows;
-    [SerializeField] private GameObject m_platformsParent;
+    [SerializeField] private GameObject m_platformsPrefab = default;
+    [SerializeField] private float m_distanceBetweenRows = default;
+    [SerializeField] private GameObject m_platformsParent = default;
 
     [Header("Game Difficulty (1 - Hard, 2 - Easy)")]
     [Range(1f, 2f)]

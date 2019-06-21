@@ -4,10 +4,10 @@ using UnityEngine.Events;
 
 public class SoundMngr : MonoBehaviour
 {
-    [SerializeField] private AudioSource m_soundBall;
-    [SerializeField] private AudioSource m_soundBtns;
-    [SerializeField] private AudioSource m_soundGameOver;
-    [SerializeField] private AudioMixer m_mixer;
+    [SerializeField] private AudioSource m_soundBall = default;
+    [SerializeField] private AudioSource m_soundBtns = default;
+    [SerializeField] private AudioSource m_soundGameOver = default;
+    [SerializeField] private AudioMixer m_mixer = default;
     public static bool m_isSoundOn;
 
     public static UnityEvent ChangeSoundOffBtnStatusEvent = new UnityEvent();
