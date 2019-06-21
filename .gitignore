@@ -5,6 +5,9 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
+# Rider plugin for Unity
+Assets/Plugins/Editor/JetBrains/*
+
 .idea/
 
 # Visual Studio cache directory
