@@ -8,15 +8,13 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private TMP_Text bestScoreText = default;
 
-    [SerializeField] private GameObject player = default;
-
-    [SerializeField] private GameEvent gameResetEvent = default;
+    [SerializeField] private GameEvent gameOverEvent = default;
 
     public static int currentScore;
+    
     public static bool m_isGameEnd;
 
     private WaitForSeconds m_delay;
-
 
     private void Awake()
     {
@@ -27,7 +25,6 @@ public class GameController : MonoBehaviour
     {
         m_delay = new WaitForSeconds(1);
 
-        player.SetActive(false);
         m_isGameEnd = true;
         SetBestScore();
     }
@@ -38,7 +35,7 @@ public class GameController : MonoBehaviour
         UIController.SetScore(currentScore);
     }
 
-    public void ResetGame()
+    public void StartGame()
     {
         currentScore = 0;
         UIController.SetScore(0);
@@ -48,14 +45,22 @@ public class GameController : MonoBehaviour
             Physics2D.gravity = -Physics2D.gravity;
         }
 
-        player.transform.position = Vector2.zero;
-        player.SetActive(true);
-
-        gameResetEvent.Raise();
-
         m_isGameEnd = false;
     }
 
+    public void OnCometHit()
+    {
+        StartCoroutine(Co_GameOver());
+    }
+
+    private IEnumerator Co_GameOver()
+    {
+        yield return new WaitForSeconds(Consts.GameOverDelay);
+
+        Debug.Log("GameController::GameOver event");
+        gameOverEvent.Raise();
+    }
+    
     public void EndOfGame()
     {
         m_isGameEnd = true;
@@ -63,8 +68,6 @@ public class GameController : MonoBehaviour
         StartCoroutine(EndOfGameCor());
 
         SetBestScore();
-
-        player.SetActive(false);
     }
 
     private IEnumerator EndOfGameCor()

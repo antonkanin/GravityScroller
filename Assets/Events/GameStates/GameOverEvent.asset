@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c9afe1eb4777574d917644a37a74733, type: 3}
   m_Name: GameOverEvent
   m_EditorClassIdentifier: 
+  description: When all animations are over and it's time to get the game over screen

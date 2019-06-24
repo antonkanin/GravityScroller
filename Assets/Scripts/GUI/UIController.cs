@@ -3,8 +3,6 @@ using TMPro;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private GameController gameController = default;
-
     [SerializeField] private GameObject m_mainMenu = default;
     [SerializeField] private GameObject m_gamePlayMenu = default;
     [SerializeField] private GameObject m_bestScoreTitle = default;
@@ -18,7 +16,6 @@ public class UIController : MonoBehaviour
 
     public void PlayBtn()
     {
-        gameController.ResetGame();
         ShowMainMenu(false);
     }
 

@@ -31,7 +31,7 @@ public class PlatformsController : MonoBehaviour
 
     private float screenWidth;
 
-    public void OnGameReset()
+    public void OnGameStart()
     {
         InitialSettingPlatformsInPool();
         ShowPlatformsPool(true);

@@ -9,6 +9,11 @@ public class PlayerMovement : MonoBehaviour
 
     private static readonly int isJumping = Animator.StringToHash("isJumping");
 
+    private void OnEnable()
+    {
+        transform.position = Vector3.zero;
+    }
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -34,8 +39,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        var jumpForce = -Mathf.Sign(Physics2D.gravity.y) * 5f * Vector2.up;
+        const float jumpForce = 5.0f;
 
-        playerRigidbody2D.AddForce(jumpForce, ForceMode2D.Impulse);
+        var jumpForceVector = -Mathf.Sign(Physics2D.gravity.y) * jumpForce * Vector2.up;
+
+        playerRigidbody2D.AddForce(jumpForceVector, ForceMode2D.Impulse);
     }
 }
