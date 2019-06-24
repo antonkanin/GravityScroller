@@ -8,9 +8,8 @@ public class PlatformsController : MonoBehaviour
     [SerializeField] private float m_distanceBetweenRows = default;
     [SerializeField] private GameObject m_platformsParent = default;
 
-    [Header("Game Difficulty (1 - Hard, 2 - Easy)")]
-    [Range(1f, 2f)]
-    [SerializeField] private float m_gameDifficulty = 1f;
+    [Header("Game Difficulty (1 - Hard, 2 - Easy)")] [Range(1f, 2f)] [SerializeField]
+    private float m_gameDifficulty = 1f;
 
     private float m_minPlatformsLenghtScale;
     private float m_maxPlatformsLenghtScale;
@@ -32,6 +31,16 @@ public class PlatformsController : MonoBehaviour
 
     private float screenWidth;
 
+    public void OnGameReset()
+    {
+        InitialSettingPlatformsInPool();
+        ShowPlatformsPool(true);
+    }
+
+    public void OnGameOver()
+    {
+        ShowPlatformsPool(false);
+    }
 
     private void Start()
     {
@@ -44,11 +53,13 @@ public class PlatformsController : MonoBehaviour
         //Calculation maxDistanceBetweenPlatformsEdges using the formula for the free-falling body path S = (gt^2)/2;
         //Default platform speed = 1;
         //Difficulty is taken into account
-        m_maxDistanceBetweenPlatformsEdges = Mathf.Sqrt((2 * m_distanceBetweenRows) / Physics2D.gravity.magnitude) - 0.1f;//0.1 - reserv for jump
+        m_maxDistanceBetweenPlatformsEdges =
+            Mathf.Sqrt((2 * m_distanceBetweenRows) / Physics2D.gravity.magnitude) - 0.1f; //0.1 - reserv for jump
 
         //Calculation required amount platforms at m_minPlatformsLenghtScale for each platform
         screenWidth = Camera.main.orthographicSize * 2 * Camera.main.aspect;
-        m_amountOfPlatforms = (int)Math.Ceiling(screenWidth / (m_minPlatformsLenghtScale + m_minDistanceBetweenPlatformsEdgesInRow) * 2);
+        m_amountOfPlatforms =
+            (int) Math.Ceiling(screenWidth / (m_minPlatformsLenghtScale + m_minDistanceBetweenPlatformsEdgesInRow) * 2);
 
         //Make m_amountOfPlatforms even
         if (m_amountOfPlatforms % 2 != 0)
@@ -80,7 +91,8 @@ public class PlatformsController : MonoBehaviour
 
         //First down platform 
         leftBorderForRangeXPosOfPlatform = m_maxPlatformsLenghtScale;
-        m_platformsPool[1].transform.position = new Vector2(1 + leftBorderForRangeXPosOfPlatform, -platformDistanceFromCenter);
+        m_platformsPool[1].transform.position =
+            new Vector2(1 + leftBorderForRangeXPosOfPlatform, -platformDistanceFromCenter);
         m_platformsPool[1].transform.localScale = new Vector3(m_maxPlatformsLenghtScale, prefabLocalScaleY);
         m_platformsPool[1].GetComponentInChildren<PlatformEffector2D>().rotationalOffset = 0;
 
@@ -103,7 +115,8 @@ public class PlatformsController : MonoBehaviour
             }
 
             //Detecting platform overrun
-            if ((m_platformsPool[0].transform.position.x + m_platformsPool[0].transform.localScale.x * 0.5f) < (-screenWidth * 0.5f))
+            if ((m_platformsPool[0].transform.position.x + m_platformsPool[0].transform.localScale.x * 0.5f) <
+                (-screenWidth * 0.5f))
             {
                 ReplacePlatformFromBeginningToEnd();
             }
@@ -127,22 +140,26 @@ public class PlatformsController : MonoBehaviour
     private void SettingPlatformInEndOfPool(int index, bool isYPosSet)
     {
         float platformYPosition =
-            (isYPosSet ? ((index % 2 == 0 ? 1 : -1) * platformDistanceFromCenter) : m_platformsPool[index].transform.position.y);
+            (isYPosSet
+                ? ((index % 2 == 0 ? 1 : -1) * platformDistanceFromCenter)
+                : m_platformsPool[index].transform.position.y);
 
         currPlatformLocalScaleX = UnityEngine.Random.Range(m_minPlatformsLenghtScale, m_maxPlatformsLenghtScale);
 
         leftBorderBasedOnCenterOverBorder = m_platformsPool[index - 1].transform.position.x
-            + 0.5f * m_platformsPool[index - 1].transform.localScale.x;
+                                            + 0.5f * m_platformsPool[index - 1].transform.localScale.x;
         leftBorderBasedOnXPosPrevPlatformInRow = m_platformsPool[index - 2].transform.position.x
-            + 0.5f * m_platformsPool[index - 2].transform.localScale.x
-            + m_minDistanceBetweenPlatformsEdgesInRow
-            + 0.5f * currPlatformLocalScaleX;
-        leftBorderForRangeXPosOfPlatform = leftBorderBasedOnCenterOverBorder > leftBorderBasedOnXPosPrevPlatformInRow ?
-           leftBorderBasedOnCenterOverBorder : leftBorderBasedOnXPosPrevPlatformInRow;
+                                                 + 0.5f * m_platformsPool[index - 2].transform.localScale.x
+                                                 + m_minDistanceBetweenPlatformsEdgesInRow
+                                                 + 0.5f * currPlatformLocalScaleX;
+        leftBorderForRangeXPosOfPlatform = leftBorderBasedOnCenterOverBorder > leftBorderBasedOnXPosPrevPlatformInRow
+            ? leftBorderBasedOnCenterOverBorder
+            : leftBorderBasedOnXPosPrevPlatformInRow;
 
         m_platformsPool[index].transform.position = new Vector2
-            (UnityEngine.Random.Range
-                (leftBorderForRangeXPosOfPlatform, leftBorderForRangeXPosOfPlatform + m_maxDistanceBetweenPlatformsEdges),
+        (UnityEngine.Random.Range
+            (leftBorderForRangeXPosOfPlatform,
+                leftBorderForRangeXPosOfPlatform + m_maxDistanceBetweenPlatformsEdges),
             platformYPosition);
         m_platformsPool[index].transform.localScale = new Vector3(currPlatformLocalScaleX, prefabLocalScaleY);
     }

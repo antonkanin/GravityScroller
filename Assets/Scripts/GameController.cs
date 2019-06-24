@@ -4,12 +4,13 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private PlatformsController platformController = default;
     [SerializeField] private UIController UIController = default;
 
     [SerializeField] private TMP_Text bestScoreText = default;
 
     [SerializeField] private GameObject player = default;
+
+    [SerializeField] private GameEvent gameResetEvent = default;
 
     public static int currentScore;
     public static bool m_isGameEnd;
@@ -50,16 +51,13 @@ public class GameController : MonoBehaviour
         player.transform.position = Vector2.zero;
         player.SetActive(true);
 
-        platformController.InitialSettingPlatformsInPool();
-        platformController.ShowPlatformsPool(true);
+        gameResetEvent.Raise();
 
         m_isGameEnd = false;
     }
 
-    private void EndOfGame()
+    public void EndOfGame()
     {
-        platformController.ShowPlatformsPool(false);
-
         m_isGameEnd = true;
 
         StartCoroutine(EndOfGameCor());
@@ -72,8 +70,6 @@ public class GameController : MonoBehaviour
     private IEnumerator EndOfGameCor()
     {
         yield return m_delay;
-
-        platformController.ShowPlatformsPool(false);
 
         UIController.ShowMainMenu(true);
     }

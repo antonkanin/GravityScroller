@@ -145,8 +145,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1093654699
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -4960118867017070704, guid: 4a1f7e868e5c2b94fa960794ca9a0c0a,
     type: 3}
@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpEvent: {fileID: 11400000, guid: 54a242c4db7e4374ea41967ba1035187, type: 2}
+  flyEvent: {fileID: 11400000, guid: a8d1ecbe275b7c642a4dd5b04de626f0, type: 2}
   landEvent: {fileID: 11400000, guid: 8e4ec4094f2b96944abd3796ac54f2b1, type: 2}
 --- !u!114 &3414043847272926677
 MonoBehaviour:
@@ -203,7 +204,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3414043847272926679}
-        m_MethodName: Jump
+        m_MethodName: Fly
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
