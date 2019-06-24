@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32141b4daafeef2489b37672d1c613dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIController: {fileID: 0}
   bestScoreText: {fileID: 0}
   gameOverEvent: {fileID: 11400000, guid: d6f7686a111efcc43b05191926ccb12b, type: 2}
+  score: {fileID: 11400000, guid: 0cc3a867e38f7ef4b801bc5f45f0fdd5, type: 2}
 --- !u!114 &170357963678872956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69963184aebdd6b40b8c27306ae68b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 8e4ec4094f2b96944abd3796ac54f2b1, type: 2}
+  Event: {fileID: 11400000, guid: bb185e626a1953b4bacb4653e334de69, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:

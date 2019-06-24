@@ -4,14 +4,12 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private UIController UIController = default;
-
     [SerializeField] private TMP_Text bestScoreText = default;
 
     [SerializeField] private GameEvent gameOverEvent = default;
 
-    public static int currentScore;
-    
+    [SerializeField] private IntVariable score = default;
+
     public static bool m_isGameEnd;
 
     private WaitForSeconds m_delay;
@@ -31,14 +29,12 @@ public class GameController : MonoBehaviour
 
     public void AddPoint()
     {
-        currentScore++;
-        UIController.SetScore(currentScore);
+        score.Value++;
     }
 
     public void StartGame()
     {
-        currentScore = 0;
-        UIController.SetScore(0);
+        score.Value = 0;
 
         if (Physics2D.gravity.y < 0)
         {
@@ -57,38 +53,28 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(Consts.GameOverDelay);
 
-        Debug.Log("GameController::GameOver event");
         gameOverEvent.Raise();
     }
-    
+
     public void EndOfGame()
     {
         m_isGameEnd = true;
 
-        StartCoroutine(EndOfGameCor());
-
         SetBestScore();
-    }
-
-    private IEnumerator EndOfGameCor()
-    {
-        yield return m_delay;
-
-        UIController.ShowMainMenu(true);
     }
 
     private void SetBestScore()
     {
         if (PlayerPrefs.HasKey("BestScore"))
         {
-            if (currentScore > PlayerPrefs.GetInt("BestScore"))
+            if (score.Value > PlayerPrefs.GetInt("BestScore"))
             {
-                PlayerPrefs.SetInt("BestScore", currentScore);
+                PlayerPrefs.SetInt("BestScore", score.Value);
             }
         }
         else
         {
-            PlayerPrefs.SetInt("BestScore", currentScore);
+            PlayerPrefs.SetInt("BestScore", score.Value);
         }
 
         bestScoreText.text = "Best score: " + PlayerPrefs.GetInt("BestScore").ToString();

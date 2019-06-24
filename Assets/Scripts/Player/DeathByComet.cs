@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DeathByComet : MonoBehaviour
 {
@@ -9,7 +8,6 @@ public class DeathByComet : MonoBehaviour
     {
         if (other.gameObject.CompareTag(Consts.CometTag))
         {
-            Debug.Log("DeathByComet::HitEvent()");
             cometHitEvent.Raise();
         }
     }

@@ -6,7 +6,6 @@ public class GameOverInvoker : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("GameOverInvoker::Raise event");
         gameOverEvent.Raise();
     }
 }

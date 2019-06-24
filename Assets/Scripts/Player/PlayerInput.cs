@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 public class PlayerInput : MonoBehaviour
@@ -16,6 +17,8 @@ public class PlayerInput : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)
         {
+            GetComponent<PlayerMovement>().Land();
+
             landEvent.Raise();
 
             isTouchPossible = true;

@@ -19,7 +19,7 @@ public class CometMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        var explosion = Instantiate(explosionPrefab, transform.position + 2f * Vector3.left, Quaternion.identity);
         Destroy(explosion, 1.0f);
     }
 }

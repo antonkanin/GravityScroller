@@ -8,10 +8,12 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject m_bestScoreTitle = default;
     [SerializeField] private TMP_Text m_scoreText = default;
 
+    [SerializeField] private IntVariable score = default;
+
     private void Start()
     {
         ShowMainMenu(true);
-        SetScore(0);
+        UpdateScore();
     }
 
     public void PlayBtn()
@@ -39,5 +41,10 @@ public class UIController : MonoBehaviour
     public void SetScore(int score)
     {
         m_scoreText.text = score.ToString();
+    }
+
+    public void UpdateScore()
+    {
+        SetScore(score.Value);
     }
 }
