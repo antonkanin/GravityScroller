@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Threading;
 using UnityEngine;
 
 public class CometSpawner : MonoBehaviour
@@ -7,9 +8,19 @@ public class CometSpawner : MonoBehaviour
 
     [SerializeField] private float spawnPositionX = default;
 
-    private void OnEnable()
+    private Coroutine spawnCoroutine;
+
+    public void EnableSpawn()
     {
-        StartCoroutine(Co_SpawnComent());
+        spawnCoroutine = StartCoroutine(Co_SpawnComent());
+    }
+
+    public void DisableSpawn()
+    {
+        if (spawnCoroutine != null)
+        {
+            StopCoroutine(spawnCoroutine);
+        }
     }
 
     private IEnumerator Co_SpawnComent()

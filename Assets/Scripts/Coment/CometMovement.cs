@@ -8,4 +8,9 @@ public class CometMovement : MonoBehaviour
     {
         transform.position += Vector3.left * speed;
     }
+
+    public void SelfDestroy()
+    {
+        Destroy(gameObject);
+    }
 }

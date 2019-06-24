@@ -3041,6 +3041,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5083026252291800950, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisableSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083026252291800950, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083026252291800951, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnableSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083026252291800951, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7c8a852321f3f4c88e9546f7b2df33, type: 3}
 --- !u!1001 &3414043846570590952
@@ -3208,6 +3228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_distanceBetweenRows
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979984476285327579, guid: da9d3ffe018b71a40a92bb2417d3d1f6,
+        type: 3}
+      propertyPath: m_gameDifficulty
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da9d3ffe018b71a40a92bb2417d3d1f6, type: 3}
