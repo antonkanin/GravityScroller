@@ -829,7 +829,6 @@ MonoBehaviour:
   UIController: {fileID: 1356323682}
   bestScoreText: {fileID: 1433589576}
   player: {fileID: 775769909}
-  gameOverEvent: {fileID: 11400000, guid: d6f7686a111efcc43b05191926ccb12b, type: 2}
   gameResetEvent: {fileID: 11400000, guid: 74294173a87e7bb489a00de3c15639bc, type: 2}
 --- !u!114 &691086655
 MonoBehaviour:
@@ -2975,6 +2974,75 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1001 &1851976708016695174
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5083026252291800949, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: m_Name
+      value: CometSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 182818204343100967, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 182818204343100967, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 182818204343100967, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 182818204343100967, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 182818204343100967, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 182818204343100967, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 182818204343100967, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 182818204343100967, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 182818204343100967, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 182818204343100967, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 182818204343100967, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1d7c8a852321f3f4c88e9546f7b2df33, type: 3}
 --- !u!1001 &3414043846570590952
 PrefabInstance:
   m_ObjectHideFlags: 0

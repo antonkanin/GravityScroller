@@ -68,11 +68,13 @@ public class PlayerInput : MonoBehaviour
 
     private void Swipe()
     {
+        Debug.Log("PlayerInput::Swipe()");
         flyEvent.Raise();
     }
 
     private void Tap()
     {
+        Debug.Log("PlayerInput::Tap()");
         jumpEvent.Raise();
     }
 }
