@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.UIElements;
+﻿using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -37,10 +35,10 @@ public class PlayerInput : MonoBehaviour
 
     private void HandleInput()
     {
-        if (!isTouchPossible)
-        {
-            return;
-        }
+//        if (!isTouchPossible)
+//        {
+//            return;
+//        }
 
         if (Input.GetMouseButton(0))
         {

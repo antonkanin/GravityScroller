@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_platformsPrefab: {fileID: 9029437299431049712, guid: 35f733fc8b183684bb162c8fd9fc08b0,
     type: 3}
-  m_distanceBetweenRows: 6
+  m_distanceBetweenRows: 8
   m_platformsParent: {fileID: 4580262857958794398}
   m_gameDifficulty: 1
 --- !u!114 &1012139022

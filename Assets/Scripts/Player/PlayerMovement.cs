@@ -2,6 +2,8 @@
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private float jumpForce;
+
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
@@ -39,8 +41,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        const float jumpForce = 5.0f;
-
         var jumpForceVector = -Mathf.Sign(Physics2D.gravity.y) * jumpForce * Vector2.up;
 
         playerRigidbody2D.AddForce(jumpForceVector, ForceMode2D.Impulse);
