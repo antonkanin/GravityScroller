@@ -2907,6 +2907,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CometSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 5083026252291800949, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 182818204343100967, guid: 1d7c8a852321f3f4c88e9546f7b2df33,
         type: 3}
       propertyPath: m_LocalPosition.x

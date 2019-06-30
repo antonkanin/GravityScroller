@@ -35,11 +35,6 @@ public class PlayerInput : MonoBehaviour
 
     private void HandleInput()
     {
-//        if (!isTouchPossible)
-//        {
-//            return;
-//        }
-
         if (Input.GetMouseButton(0))
         {
             if (!isMouseDown)
@@ -52,15 +47,22 @@ public class PlayerInput : MonoBehaviour
         {
             isMouseDown = false;
 
-            const float swipeDistance = 0.001f;
+            const float swipeSquaredDistance = 20000.0f; // pixels;
 
             var sqrMagnitude = (Input.mousePosition - initialMousePosition).sqrMagnitude;
 
-            if (sqrMagnitude >= swipeDistance)
+            if (sqrMagnitude >= swipeSquaredDistance)
             {
-                Swipe();
+                var deltaY = initialMousePosition.y - Input.mousePosition.y;
+
+                if ((Physics2D.gravity.y > 0 && deltaY > 0) ||
+                    (Physics2D.gravity.y < 0 && deltaY < 0))
+                {
+                    Swipe();
+                }
             }
-            else
+            // jump should only work when the player is walking on the platform
+            else if (isTouchPossible)
             {
                 Tap();
             }
